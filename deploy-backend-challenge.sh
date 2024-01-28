@@ -39,7 +39,7 @@ else
   exit 1
 fi
 
-BASE_DIR="/home/pi"
+BASE_DIR="/home/pi/pysect-src"
 PROJECT_DIR="$BASE_DIR/$PROJECT_NAME"
 cd "$PROJECT_DIR"
 
