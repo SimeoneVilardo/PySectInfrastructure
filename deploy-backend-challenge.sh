@@ -64,4 +64,10 @@ echo "Doing migrations..."
 docker compose -f "$DOCKER_COMPOSE_FILE" exec "$WEB_CONTAINER" python manage.py migrate
 wait
 
+if [ "$ENVIRONMENT" == "dev" ]; then
+  echo "Installing fixtures..."
+  docker compose -f "$DOCKER_COMPOSE_FILE" exec "$WEB_CONTAINER" python manage.py loaddata server/fixtures/*.json
+  wait
+fi
+
 echo "Up and running!"
