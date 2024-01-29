@@ -24,8 +24,8 @@ if [ -z "$ENVIRONMENT" ]; then
   exit 1
 fi
 
-source ./shutdown-backend-challenge -env "$ENVIRONMENT"
-source ./shutdown-backend-notification -env "$ENVIRONMENT"
-source ./shutdown-frontend -env "$ENVIRONMENT"
+source ./shutdown-backend-challenge.sh -env "$ENVIRONMENT"
+source ./shutdown-backend-notification.sh -env "$ENVIRONMENT"
+source ./shutdown-frontend.sh -env "$ENVIRONMENT"
 
 echo "All systems are down!"

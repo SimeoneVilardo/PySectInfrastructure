@@ -24,8 +24,8 @@ if [ -z "$ENVIRONMENT" ]; then
   exit 1
 fi
 
-source ./deploy-backend-challenge -env "$ENVIRONMENT"
-source ./deploy-backend-notification -env "$ENVIRONMENT"
-source ./deploy-frontend -env "$ENVIRONMENT"
+source ./deploy-backend-challenge.sh -env "$ENVIRONMENT"
+source ./deploy-backend-notification.sh -env "$ENVIRONMENT"
+source ./deploy-frontend.sh -env "$ENVIRONMENT"
 
 echo "All systems are up!"
