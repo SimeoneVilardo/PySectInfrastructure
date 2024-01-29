@@ -43,4 +43,5 @@ cd "$PROJECT_DIR"
 docker compose -f "$DOCKER_COMPOSE_FILE" down
 wait
 
+cd ..
 echo "$PROJECT_NAME is off!"

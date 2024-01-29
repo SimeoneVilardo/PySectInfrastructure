@@ -60,4 +60,5 @@ echo "Starting new containers..."
 docker compose -f "$DOCKER_COMPOSE_FILE" up --build -d
 wait
 
+cd ..
 echo "Up and running!"

@@ -70,4 +70,5 @@ if [ "$ENVIRONMENT" == "dev" ]; then
   wait
 fi
 
+cd ..
 echo "Up and running!"
