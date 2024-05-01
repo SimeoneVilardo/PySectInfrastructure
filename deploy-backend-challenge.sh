@@ -27,20 +27,17 @@ fi
 if [ "$ENVIRONMENT" == "dev" ]; then
   DOCKER_COMPOSE_FILE="docker-compose.dev.yml"
   WEB_CONTAINER="web-dev"
-  PROJECT_NAME="pysect-backend-challenge-dev"
 elif [ "$ENVIRONMENT" == "prod" ]; then
   DOCKER_COMPOSE_FILE="docker-compose.prod.yml"
   WEB_CONTAINER="web-prod"
-  PROJECT_NAME="pysect-backend-challenge-prod"
 else
   echo "Error: Unknown environment. Supported values are dev or prod." >&2
   exit 1
 fi
 
-BASE_DIR="/home/pi/pysect-src"
-PROJECT_DIR="$BASE_DIR/$PROJECT_NAME"
+BASE_DIR="/home/pi/pysect-infrastructure"
 DOCKER_COMPOSE_FILE="backend-challenge/$DOCKER_COMPOSE_FILE"
-cd "$PROJECT_DIR"
+cd "$BASE_DIR"
 
 echo "Deploying to $ENVIRONMENT..."
 echo "Shutting down containers..."
