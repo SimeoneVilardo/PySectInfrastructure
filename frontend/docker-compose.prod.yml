@@ -3,7 +3,7 @@ name: pysect-frontend-prod
 services:
 
   web-prod:
-    image: "simeonevilardo/pysect-frontend-prod"
+    image: "simeonevilardo/pysect-frontend-prod:latest"
     container_name: pysect-frontend-prod
     platform: linux/arm64/v8
     environment:

@@ -3,7 +3,7 @@ name: pysect-frontend-dev
 services:
 
   web-dev:
-    image: "simeonevilardo/pysect-frontend-dev"
+    image: "simeonevilardo/pysect-frontend-dev:latest"
     container_name: pysect-frontend-dev
     platform: linux/arm64/v8
     environment:

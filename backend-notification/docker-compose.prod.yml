@@ -3,7 +3,7 @@ name: pysect-backend-notification-prod
 services:
 
   web-prod:
-    image: "simeonevilardo/pysect-backend-notification-prod"
+    image: "simeonevilardo/pysect-backend-notification-prod:latest"
     container_name: pysect-backend-notification-prod
     platform: linux/arm64/v8
     networks:
