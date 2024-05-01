@@ -1,0 +1,21 @@
+version: "3.9"
+name: pysect-backend-notification-prod
+services:
+
+  web-prod:
+    image: "simeonevilardo/pysect-backend-notification-prod"
+    container_name: pysect-backend-notification-prod
+    platform: linux/arm64/v8
+    networks:
+      - nginx-reverse-proxy-net
+    env_file:
+      - ./docker/config/.env.prod
+    environment:
+      VIRTUAL_HOST: py.sect.letz.dev
+      VIRTUAL_PATH: ~^/(api/notification)/
+      VIRTUAL_PORT: 8000
+    command: ./docker/express/local_run.sh
+
+networks:
+  nginx-reverse-proxy-net:
+    external: true

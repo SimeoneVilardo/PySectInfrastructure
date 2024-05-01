@@ -26,12 +26,10 @@ fi
 
 if [ "$ENVIRONMENT" == "dev" ]; then
   DOCKER_COMPOSE_FILE="docker-compose.dev.yml"
-  GIT_BRANCH="dev"
   WEB_CONTAINER="web-dev"
   PROJECT_NAME="pysect-backend-challenge-dev"
 elif [ "$ENVIRONMENT" == "prod" ]; then
   DOCKER_COMPOSE_FILE="docker-compose.prod.yml"
-  GIT_BRANCH="master"
   WEB_CONTAINER="web-prod"
   PROJECT_NAME="pysect-backend-challenge-prod"
 else
@@ -41,19 +39,12 @@ fi
 
 BASE_DIR="/home/pi/pysect-src"
 PROJECT_DIR="$BASE_DIR/$PROJECT_NAME"
+DOCKER_COMPOSE_FILE="backend-challenge/$DOCKER_COMPOSE_FILE"
 cd "$PROJECT_DIR"
 
 echo "Deploying to $ENVIRONMENT..."
 echo "Shutting down containers..."
 docker compose -f "$DOCKER_COMPOSE_FILE" down
-wait
-
-echo "Downloading new code..."
-git checkout "$GIT_BRANCH"
-wait
-git fetch --all
-wait
-git pull origin "$GIT_BRANCH"
 wait
 
 echo "Starting new containers..."

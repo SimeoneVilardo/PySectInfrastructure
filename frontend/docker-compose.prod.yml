@@ -1,0 +1,18 @@
+version: "3.9"
+name: pysect-frontend-prod
+services:
+
+  web-prod:
+    image: "simeonevilardo/pysect-frontend-prod"
+    container_name: pysect-frontend-prod
+    platform: linux/arm64/v8
+    environment:
+      VIRTUAL_HOST: py.sect.letz.dev
+      VIRTUAL_PATH: /
+      VIRTUAL_PORT: 3000
+    networks:
+      - nginx-reverse-proxy-net
+
+networks:
+  nginx-reverse-proxy-net:
+    external: true
