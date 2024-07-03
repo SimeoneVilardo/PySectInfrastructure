@@ -48,6 +48,10 @@ echo "Starting new containers..."
 docker compose -f "$DOCKER_COMPOSE_FILE" up --build -d
 wait
 
+echo "Make migrations..."
+docker compose -f "$DOCKER_COMPOSE_FILE" exec "$WEB_CONTAINER" python manage.py makemigrations
+wait
+
 echo "Doing migrations..."
 docker compose -f "$DOCKER_COMPOSE_FILE" exec "$WEB_CONTAINER" python manage.py migrate
 wait
